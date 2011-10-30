@@ -73,6 +73,21 @@ __PACKAGE__->add_columns(
         is_nullable => 0,
         timezone    => 'Asia/Tokyo',
     },
+    company => {
+        data_type   => 'VARCHAR',
+        size        => 255,
+        is_nullable => 1,
+    },
+    logo => {
+        data_type   => 'VARCHAR',
+        size        => 255,
+        is_nullable => 1,
+    },
+    url => {
+        data_type   => 'VARCHAR',
+        size        => 255,
+        is_nullable => 1,
+    },
     created_at => {
         data_type   => 'DATETIME',
         is_nullable => 0,
