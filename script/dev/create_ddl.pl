@@ -44,7 +44,7 @@ warn "ddl from version: ".$preversion ."\n";
 warn "      to version: ".$next_version ."\n";
 
 $schema->create_ddl_dir(
-    [qw/MySQL/],
+    [qw/MySQL SQLite/],
     $next_version,
     "$FindBin::Bin/../../sql/",
     $preversion,
