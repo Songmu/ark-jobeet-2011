@@ -14,6 +14,7 @@ requires 'DBIx::Class::Cursor::Cached';
 requires 'SQL::Translator';
 requires 'DBD::mysql';
 requires 'DateTime::Format::MySQL';
+requires 'DateTime::Format::SQLite';
 
 requires 'IO::Prompt';
 
