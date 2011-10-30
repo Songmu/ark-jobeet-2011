@@ -1,6 +1,9 @@
 package Jobeet::Schema::ResultBase;
 use strict;
 use warnings;
+
+use DateTime;
+
 use base 'DBIx::Class';
 
 __PACKAGE__->load_components(qw/InflateColumn::DateTime Core/);
