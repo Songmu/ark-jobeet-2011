@@ -6,7 +6,9 @@ use Jobeet::Models;
 sub index :Path {
     my ($self, $c) = @_;
 
-    $c->stash->{jobs} = models('Schema::Job');
+    $c->stash->{jobs} = models('Schema::Job')->search({
+        created_at => { '>=', DateTime->now->add( days => -30 ) },
+    });
 }
 
 # /job/{job_id} （詳細）
