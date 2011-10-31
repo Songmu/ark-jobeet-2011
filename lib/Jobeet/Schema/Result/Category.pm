@@ -42,7 +42,7 @@ sub get_active_jobs {
     $attr->{rows} ||= 10;
 
     $self->jobs({
-        expired_at  => { '>=', models('Schema')->now }
+        expires_at  => { '>=', models('Schema')->now }
     }, {
         order_by    => { -desc => 'created_at' },
         rows        => $attr->{rows},
