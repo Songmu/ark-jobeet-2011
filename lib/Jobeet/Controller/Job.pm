@@ -7,7 +7,7 @@ sub index :Path {
     my ($self, $c) = @_;
 
     $c->stash->{jobs} = models('Schema::Job')->search({
-        created_at => { '>=', DateTime->now->add( days => -30 ) },
+        expires_at => { '>=', models('Schema')->now },
     });
 }
 
