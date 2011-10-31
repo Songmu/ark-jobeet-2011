@@ -34,4 +34,15 @@ __PACKAGE__->has_many(
 
 __PACKAGE__->many_to_many( affiliates => category_affiliate => 'affiliate' );
 
+
+sub get_active_jobs {
+    my $self = shift;
+
+    $self->jobs({
+        expired_at  => { '>=', models('Schema')->now }
+    }, {
+        order_by    => { -desc => 'created_at' }
+    });
+}
+
 1;
