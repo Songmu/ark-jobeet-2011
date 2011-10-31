@@ -6,9 +6,7 @@ use Jobeet::Models;
 sub index :Path {
     my ($self, $c) = @_;
 
-    $c->stash->{jobs} = models('Schema::Job')->search({
-        expires_at => { '>=', models('Schema')->now },
-    });
+    $c->stash->{jobs} = models('Schema::Job')->get_active_jobs;
 }
 
 # /job/{job_id} （詳細）
