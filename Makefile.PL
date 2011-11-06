@@ -10,7 +10,6 @@ requires 'Text::MicroTemplate::Extended';
 requires 'DateTime';
 requires 'FindBin::libs';
 requires 'DBIx::Class';
-requires 'DBIx::Class::Cursor::Cached';
 requires 'SQL::Translator';
 requires 'DBD::mysql';
 requires 'DateTime::Format::MySQL';
