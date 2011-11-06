@@ -20,6 +20,8 @@ requires 'IO::Prompt';
 requires 'Text::MicroTemplate::DataSection';
 requires 'String::CamelCase';
 
+requires 'Data::Page::Navigation';
+
 tests 't/*.t';
 author_tests 'xt';
 

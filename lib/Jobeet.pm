@@ -4,6 +4,8 @@ use Ark;
 use_model 'Jobeet::Models';
 our $VERSION = '0.01';
 
+use Data::Page::Navigation;
+
 config 'View::MT' => {
     use_cache => 1,
 
