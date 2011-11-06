@@ -48,9 +48,10 @@ sub get_active_jobs {
     my $attr = shift || {};
 
     $self->jobs(
-        { expires_at => { '>=', models('Schema')->now } },
+        { expires_at => { '>=', DateTime->now } },
         {   order_by => { -desc => 'created_at' },
             defined $attr->{rows} ? (rows => $attr->{rows}) : (),
+            defined $attr->{page} ? (page => $attr->{page}) : (),
         }
     );
 }
