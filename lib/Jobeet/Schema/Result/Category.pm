@@ -7,6 +7,8 @@ use base qw/Jobeet::Schema::ResultBase/;
 
 use Jobeet::Models;
 
+use String::CamelCase qw(decamelize);
+
 __PACKAGE__->table('jobeet_category');
 
 __PACKAGE__->add_columns(
@@ -26,7 +28,7 @@ __PACKAGE__->add_columns(
     slug => {
         data_type   => 'VARCHAR',
         size        => 255,
-        is_nullable => 1,
+        is_nullable => 0,
     }
 );
 
@@ -53,6 +55,24 @@ sub get_active_jobs {
         order_by    => { -desc => 'created_at' },
         rows        => $attr->{rows},
     });
+}
+
+sub insert {
+    my $self = shift;
+
+    $self->slug( decamelize $self->name );
+
+    $self->next::method(@_);
+}
+
+sub update {
+    my $self = shift;
+
+    if ($self->is_changed('name')) {
+        $self->slug( decamelize $self->name );
+    }
+
+    $self->next::method(@_);
 }
 
 1;
