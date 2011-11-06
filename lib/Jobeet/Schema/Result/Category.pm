@@ -23,6 +23,11 @@ __PACKAGE__->add_columns(
         size        => 255,
         is_nullable => 0,
     },
+    slug => {
+        data_type   => 'VARCHAR',
+        size        => 255,
+        is_nullable => 1,
+    }
 );
 
 __PACKAGE__->set_primary_key('id');
@@ -34,6 +39,7 @@ __PACKAGE__->has_many(
 
 __PACKAGE__->many_to_many( affiliates => category_affiliate => 'affiliate' );
 
+__PACKAGE__->add_unique_constraint(['slug']);
 
 sub get_active_jobs {
     my $self = shift;
