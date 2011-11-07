@@ -14,7 +14,7 @@
   <h1><?= $category->name ?></h1>
 </div>
 
-?= include('job/partial_jobs', $category->get_active_jobs);
+?= include('job/_partial_jobs', $category->get_active_jobs);
 
 ? if ($pager->last_page > 1) {
   <div class="pagination">
