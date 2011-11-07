@@ -112,7 +112,7 @@ sub insert {
     my $self = shift;
 
     $self->token( sha1_hex(Data::UUID->new->create) );
-    $self->expires_at( models('Schema')->now->add(days => models('conf')->{active_days}) );
+    $self->expires_at( models('Schema')->now->clone->add(days => models('conf')->{active_days}) );
     $self->next::method(@_);
 }
 
