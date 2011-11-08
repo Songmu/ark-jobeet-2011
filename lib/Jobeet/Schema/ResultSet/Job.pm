@@ -16,7 +16,7 @@ sub create_from_form {
         or die 'no such category_id: ', $category_id;
 
     my $job = $self->create({
-        category_id => $category_id,
+        category_id => $category->id,
         %{ $form->params },
     });
 

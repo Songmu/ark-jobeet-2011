@@ -42,7 +42,7 @@
   <h1><?= $job->company ?></h1>
   <h2><?= $job->location ?></h2>
   <h3>
-    <?= $job->category ?>    <small> - <?= $job->type ?></small>
+    <?= $job->category->name ?>    <small> - <?= $job->type ?></small>
   </h3>
 
   <div class="description">
