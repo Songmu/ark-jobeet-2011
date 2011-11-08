@@ -12,16 +12,6 @@ use_plugins qw{
     Session::Store::Model
 };
 
-config 'View::MT' => {
-    use_cache => 1,
-
-    macro => {
-        stash => sub {
-            __PACKAGE__->context->stash;
-        },
-    },
-};
-
 config 'Plugin::Session' => {
     expires => '+30d',
 };
