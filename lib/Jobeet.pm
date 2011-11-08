@@ -6,6 +6,12 @@ our $VERSION = '0.01';
 
 use Data::Page::Navigation;
 
+use_plugins qw{
+    Session
+    Session::State::Cookie
+    Session::Store::Model
+};
+
 config 'View::MT' => {
     use_cache => 1,
 
@@ -16,16 +22,16 @@ config 'View::MT' => {
     },
 };
 
-config 'Plugin::Session::Store::Model' => {
-    model => 'session',
-};
-
-config 'Plugin::PageCache' => {
-    model => 'cache',
-};
-
 config 'Plugin::Session' => {
     expires => '+30d',
+};
+
+config 'Plugin::Session::State::Cookie' => {
+    cookie_name => 'jobeet_session',
+};
+
+config 'Plugin::Session::Store::Model' => {
+    model => 'cache',
 };
 
 1;
