@@ -5,7 +5,10 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="Latest Jobs"
         href="<?= $c->uri_for('/job/atom') ?>" />
-    <? block javascripts => '' ?>
+? block javascripts => sub {
+    <script type="text/javascript" src="<?= $c->uri_for('/js/jquery-1.7.js') ?>"></script>
+    <script type="text/javascript" src="<?= $c->uri_for('/js/search.js') ?>"></script>
+? } # endblock javascripts
     <? block stylesheets => '' ?>
   </head>
   <body>
@@ -30,6 +33,7 @@
                 <input type="text" name="q"
                   id="search_keywords" />
                 <input type="submit" value="search" />
+                <img id="loader" src="<?= $c->uri_for('/images/loader.gif') ?>" style="vertical-align: middle; display: none" />
                 <div class="help">
                   Enter some keywords (city, country, position, ...)
                 </div>
