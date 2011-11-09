@@ -21,6 +21,7 @@ requires 'Text::MicroTemplate::DataSection';
 requires 'String::CamelCase';
 
 requires 'Data::Page::Navigation';
+requires 'JSON::Any';
 
 tests 't/*.t';
 author_tests 'xt';
